@@ -5,7 +5,15 @@
 # A git repo containing buildable mkdocs
 repo: # e.g. https://github.com/azimuth-cloud/azimuth-config
 
-# List of mkdocs plugins to install
+# Optional private key for checking out private git repos
+# The public part of the key pair must be added to the target
+# GitHub / GitLab repo as a READ ONLY 'deploy key'.
+# See relevant docs for GitHub and GitLab:
+# https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys
+# https://docs.gitlab.com/ee/user/project/deploy_keys/
+sshPrivateKey:
+
+# List of additional mkdocs plugins to install
 plugins:
 - mkdocs-git-revision-date-localized-plugin
 

@@ -41,6 +41,13 @@ spec:
           volumeMounts:
             - mountPath: /tmp/checkout
               name: repo-checkout
+          {{- if .Values.sshPrivateKey }}
+            - mountPath: /root/.ssh
+              name: repo-ssh-key
+          env:
+            - name: GIT_SSH_COMMAND
+              value: "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /root/.ssh/ssh-privatekey"
+          {{- end }}
         - name: mkdocs
           image: squidfunk/mkdocs-material
           imagePullPolicy: {{ .Values.image.pullPolicy }}
@@ -77,6 +84,12 @@ spec:
           emptyDir: {}
         - name: static-docs
           emptyDir: {}
+        {{- if .Values.sshPrivateKey }}
+        - name: repo-ssh-key
+          secret:
+            secretName: {{ include "mkdocs-helm.fullname" . }}-ssh
+            defaultMode: 0600
+        {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
