@@ -2,6 +2,13 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+# A git repo containing buildable mkdocs
+repo: # e.g. https://github.com/azimuth-cloud/azimuth-config
+
+# List of mkdocs plugins to install
+plugins:
+- mkdocs-git-revision-date-localized-plugin
+
 # This will set the replicaset count more information can be found here: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
 replicaCount: 1
 

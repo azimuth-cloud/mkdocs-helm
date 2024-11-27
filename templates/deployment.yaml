@@ -30,6 +30,29 @@ spec:
       serviceAccountName: {{ include "mkdocs-helm.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+        - name: clone
+          image: alpine/git
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          args:
+          - clone
+          - {{ .Values.repo | required "A target git repo containing mkdocs config must be supplied" }}
+          - /tmp/checkout
+          volumeMounts:
+            - mountPath: /tmp/checkout
+              name: repo-checkout
+        - name: mkdocs
+          image: squidfunk/mkdocs-material
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command:
+          - sh
+          - -c
+          - {{ join " " .Values.plugins | printf "pip install %s && mkdocs build -d /build" }}
+          volumeMounts:
+            - mountPath: /docs
+              name: repo-checkout
+            - mountPath: /build
+              name: static-docs
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -46,6 +69,14 @@ spec:
             {{- toYaml .Values.readinessProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: /usr/share/nginx/html
+              name: static-docs
+      volumes:
+        - name: repo-checkout
+          emptyDir: {}
+        - name: static-docs
+          emptyDir: {}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
