@@ -2,8 +2,18 @@ apiVersion: v1
 entries:
   mkdocs-helm:
   - apiVersion: v2
+    appVersion: 9c8108e
+    created: "2024-11-28T16:23:17.158023802Z"
+    description: A Helm chart for Kubernetes
+    digest: d248aada62c538c88c4fd4e35b07842171efcad2c3d8ab27614cd6039d218758
+    name: mkdocs-helm
+    type: application
+    urls:
+    - mkdocs-helm-0.1.0-dev.0.main.8.tgz
+    version: 0.1.0-dev.0.main.8
+  - apiVersion: v2
     appVersion: "67539e9"
-    created: "2024-11-28T15:21:27.729145613Z"
+    created: "2024-11-28T16:23:17.157552233Z"
     description: A Helm chart for Kubernetes
     digest: 48d815e04a3c279b04bb93b8b98794ddf78ca4c9994598e80318df578dad5200
     name: mkdocs-helm
@@ -11,4 +21,4 @@ entries:
     urls:
     - mkdocs-helm-0.1.0-dev.0.main.7.tgz
     version: 0.1.0-dev.0.main.7
-generated: "2024-11-28T15:21:27.728368857Z"
+generated: "2024-11-28T16:23:17.156966051Z"
