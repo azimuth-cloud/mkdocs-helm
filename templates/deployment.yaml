@@ -37,6 +37,10 @@ spec:
           args:
           - clone
           - {{ .Values.repo | required "A target git repo containing mkdocs config must be supplied" }}
+          {{- with .Values.branch }}
+          - -b
+          - {{ . }}
+          {{- end }}
           - /tmp/checkout
           volumeMounts:
             - mountPath: /tmp/checkout

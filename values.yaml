@@ -4,6 +4,8 @@
 
 # A git repo containing buildable mkdocs
 repo: # e.g. https://github.com/azimuth-cloud/azimuth-config
+# Optional alternative branch of the target repo
+branch:
 
 # Optional path to a python requirements file
 # (relative to the repo root) containing mkdocs
