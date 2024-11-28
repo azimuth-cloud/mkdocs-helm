@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  mkdocs-helm:
+  - apiVersion: v2
+    appVersion: "67539e9"
+    created: "2024-11-28T15:21:27.729145613Z"
+    description: A Helm chart for Kubernetes
+    digest: 48d815e04a3c279b04bb93b8b98794ddf78ca4c9994598e80318df578dad5200
+    name: mkdocs-helm
+    type: application
+    urls:
+    - mkdocs-helm-0.1.0-dev.0.main.7.tgz
+    version: 0.1.0-dev.0.main.7
+generated: "2024-11-28T15:21:27.728368857Z"
