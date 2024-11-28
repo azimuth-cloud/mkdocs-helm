@@ -11,6 +11,10 @@ repo: # e.g. https://github.com/azimuth-cloud/azimuth-config
 # the `mkdocs build` command.
 requirementsPath: # e.g. requirements-docs.txt
 
+# Path to the target mkdocs config file relative
+# to the repo root.
+mkdocsConfigPath: mkdocs.yml
+
 # Optional private key for checking out private git repos
 # The public part of the key pair must be added to the target
 # GitHub / GitLab repo as a READ ONLY 'deploy key'.
