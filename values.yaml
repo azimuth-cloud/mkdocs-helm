@@ -5,6 +5,12 @@
 # A git repo containing buildable mkdocs
 repo: # e.g. https://github.com/azimuth-cloud/azimuth-config
 
+# Optional path to a python requirements file
+# (relative to the repo root) containing mkdocs
+# depenencies to be installed before running
+# the `mkdocs build` command.
+requirementsPath: # e.g. requirements-docs.txt
+
 # Optional private key for checking out private git repos
 # The public part of the key pair must be added to the target
 # GitHub / GitLab repo as a READ ONLY 'deploy key'.
@@ -12,10 +18,6 @@ repo: # e.g. https://github.com/azimuth-cloud/azimuth-config
 # https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys
 # https://docs.gitlab.com/ee/user/project/deploy_keys/
 sshPrivateKey:
-
-# List of additional mkdocs plugins to install
-plugins:
-- mkdocs-git-revision-date-localized-plugin
 
 
 #####
@@ -33,7 +35,7 @@ image:
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "1.27.3"
 
 # This is for the secretes for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: []

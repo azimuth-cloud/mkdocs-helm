@@ -54,7 +54,7 @@ spec:
           command:
           - sh
           - -c
-          - {{ join " " .Values.plugins | printf "pip install %s && mkdocs build -d /build" }}
+          - {{ printf "%s mkdocs build -d /build" (ternary "" (printf "pip install -r %s &&" .Values.requirementsPath)  (empty .Values.requirementsPath )) }}
           volumeMounts:
             - mountPath: /docs
               name: repo-checkout
