@@ -21,3 +21,7 @@
 .idea/
 *.tmproj
 .vscode/
+
+# Github files
+README.md
+LICENSE
